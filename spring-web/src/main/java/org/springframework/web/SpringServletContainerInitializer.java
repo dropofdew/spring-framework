@@ -110,6 +110,7 @@ import org.springframework.util.ReflectionUtils;
  * @see #onStartup(Set, ServletContext)
  * @see WebApplicationInitializer
  */
+//将注解指定的Class对象作为参数传递到onStartup(ServletContainerInitializer)方法中，这里传递的是字节码文件，也叫字节码文件对象
 @HandlesTypes(WebApplicationInitializer.class)
 public class SpringServletContainerInitializer implements ServletContainerInitializer {
 
@@ -140,8 +141,12 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 	 * @see AnnotationAwareOrderComparator
 	 */
 	@Override
+	//WebAppInitializer与ServletContainerInitializer关联，通过传递ServletContainerInitializer.class文件作为参数进入onStartup方法
+	//最后执行webAppInitializer对象的onStartup方法
+	//此时，参数WebAppInitializer进来的是其类的class文件，通过反射生成实例对象，对象调用其onStartup方法
 	public void onStartup(@Nullable Set<Class<?>> webAppInitializerClasses, ServletContext servletContext)
 			throws ServletException {
+		System.out.println("---------onStartup ------------");
 
 		List<WebApplicationInitializer> initializers = Collections.emptyList();
 

@@ -45,7 +45,7 @@ task api(type: Javadoc) {
 		overview = "src/docs/api/overview.html"
 		stylesheetFile = file("src/docs/api/stylesheet.css")
 		splitIndex = true
-		links(project.ext.javadocLinks)
+//		links(project.ext.javadocLinks)
 		addStringOption('Xdoclint:none', '-quiet')
 		if(JavaVersion.current().isJava9Compatible()) {
 			addBooleanOption('html5', true)
@@ -95,7 +95,7 @@ dokka {
 
 		externalDocumentationLink {
 			url = new URL("https://docs.spring.io/spring-framework/docs/$version/javadoc-api/")
-			packageListUrl = new File(buildDir, "docs/javadoc/package-list").toURI().toURL()
+//			packageListUrl = new File(buildDir, "docs/javadoc/package-list").toURI().toURL()
 		}
 		externalDocumentationLink {
 			url = new URL("https://projectreactor.io/docs/core/release/api/")

@@ -1,0 +1,6 @@
+com.pole2win.spi.config.CustomAutoConfiguration=\
+  com.pole2win.spi.components.Driver,\
+  com.pole2win.spi.components.Dog,\
+  com.pole2win.spi.components.Student,\
+  com.pole2win.spi.components.Tree,\
+  com.pole2win.spi.components.SpiInterfaceImpl1

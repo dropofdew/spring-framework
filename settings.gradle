@@ -1,5 +1,7 @@
 pluginManagement {
 	repositories {
+		mavenLocal()
+		maven { url "https://maven.aliyun.com/repository/spring-plugin" }
 		gradlePluginPortal()
 		maven { url 'https://repo.spring.io/plugins-release' }
 	}
@@ -7,7 +9,7 @@ pluginManagement {
 
 plugins {
 	id "com.gradle.enterprise" version "3.6.1"
-	id "io.spring.ge.conventions" version "0.0.7"
+//	id "io.spring.ge.conventions" version "0.0.7"
 }
 
 include "spring-aop"
@@ -56,3 +58,9 @@ settings.gradle.projectsLoaded {
 		}
 	}
 }
+include 'spring-di'
+include 'aop'
+include 'spring-boot-custom'
+include 'spring-import-selector'
+include 'spring-spi'
+

@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group 'org.springframework'
+version '5.3.10-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven { url "https://maven.aliyun.com/repository/spring-plugin" }
+    mavenCentral()
+}
+
+dependencies {
+    //spring-core IOC/DI
+    compile(project((":spring-context")))
+
+    //springweb开发
+    //web包提供核心的HTTP集成：http（http协议的实现类）和web包（应用，上下文，会话，cookies，过滤器等等）
+    //包括最为熟悉的监听器：ContextLoaderListener
+    //还有远程调用和远程服务的支持
+    compile(project((":spring-web")))
+    //webmvc包主要提供dispatcherServlet
+    //基于spring的web的MVC模式，主要是增加了对spring MVC的支持，包括一些view层的核心封装，提供各前端技术及标签支持，restful协议、国际化等模块。
+    compile(project((":spring-webmvc")))
+
+    //内嵌tomcat
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '8.5.70'
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.70'
+
+    //servlet-api
+    optional("javax.servlet:javax.servlet-api:3.1.0")
+
+    //spring IOC/DI
+    compile(project((":spring-context")))
+
+    //fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.67'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}

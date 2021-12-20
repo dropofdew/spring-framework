@@ -128,6 +128,7 @@ public final class SpringFactoriesLoader {
 		if (classLoaderToUse == null) {
 			classLoaderToUse = SpringFactoriesLoader.class.getClassLoader();
 		}
+		//获取传递过来的全限定类名，根据类名，获取
 		String factoryTypeName = factoryType.getName();
 		return loadSpringFactories(classLoaderToUse).getOrDefault(factoryTypeName, Collections.emptyList());
 	}
